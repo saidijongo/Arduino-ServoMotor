@@ -5,7 +5,7 @@ Servo jongo; //servo object
 int position = 0;    
 
 void setup() {
-  jongo.attach(3); 
+  jongo.attach(44); //MPAINO PWM section
 }
 
 void loop() {
