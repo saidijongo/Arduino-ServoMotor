@@ -1,3 +1,5 @@
+//Red and Brown: Power
+//Orange/Yellow :Data pin
 #include <Servo.h>
 
 Servo myServo;
