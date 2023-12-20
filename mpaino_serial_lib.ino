@@ -22,7 +22,7 @@ void commandProcess(String command) {
   int angle = command.substring(0, command.indexOf(',')).toInt();
   int time = command.substring(command.indexOf(',') + 1).toInt();
 
-  //angle = constrain(angle, 0, 180);
+  angle = constrain(angle, 0, 180);
 
   // Run the servo motor with the parsed values
   runServo(angle, time);
