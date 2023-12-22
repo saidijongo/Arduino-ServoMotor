@@ -17,6 +17,7 @@ void setup() {
   Serial.println("Setup completed.");
 }
 
+///SERVO////
 void runServo(int angle, int runSpeed) {
   int mappedSpeed = map(runSpeed, 0, 2000, 0, 180);
   
@@ -33,6 +34,8 @@ void runServo(int angle, int runSpeed) {
   }
 }
 
+
+///STEPPER/////
 void runStepper(int angle, int runTime) {
   Serial.print("Running stepper motor, Angle: " + String(angle) + " Run Time: " + String(runTime) + "\r\n");
   //Serial.print(angle);
