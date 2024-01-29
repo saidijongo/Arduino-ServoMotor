@@ -3,9 +3,9 @@
 
 Servo myServo;
 
-const int servoPin = 10; 
-const int dirPin = 9; 
-const int pulPin = 8; 
+const int servoPin = 44; 
+const int dirPin = 45; 
+const int pulPin = 46; 
 
 const int numStepsPerRevolution = 6400;
 
@@ -13,6 +13,7 @@ void setup() {
   pinMode(dirPin, OUTPUT);
   pinMode(pulPin, OUTPUT);
   myServo.attach(servoPin);
+  //myServo.write(0);
   Serial.begin(115200);
   Serial.println("Setup completed.");
 }
@@ -47,7 +48,9 @@ void runStepper(int angle, int runTime) {
   digitalWrite(dirPin, direction);
 
   // Calculate the number of steps based on the angle
-  int steps = angle * numStepsPerRevolution / 360;
+  
+  //int steps = angle * numStepsPerRevolution / 360;
+  int steps = angle /1.8;
 
   // Run the stepper motor
   for (int i = 0; i < steps; i++) {
@@ -237,7 +240,6 @@ void processCommand(String command) {
       Serial.print("SID: ");
       Serial.println(SID);
 
-      
       // Relay control logic based on motorType
       if (motorType == "PUMPMOTOR_OPERATION") {
         //digitalWrite(driverOut1, HIGH);
@@ -246,7 +248,6 @@ void processCommand(String command) {
         //digitalWrite(driverOut2, HIGH);
         //iswashing = true;
       }
-
 
       // Extract pump number/angle and run time from subsequent brackets
       int index = secondBracketIndex + 1;
