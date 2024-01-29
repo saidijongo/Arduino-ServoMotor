@@ -1,9 +1,8 @@
-
 #include <FastLED.h>
 
-#define NUM_LEDS_CUBE 15
+#define NUM_LEDS_CUBE 47
 #define IR_PIN 13
-#define LED_PIN_CUBE 12
+#define LED_PIN_CUBE 45
 
 CRGB ledscube[NUM_LEDS_CUBE];
 
@@ -64,7 +63,7 @@ void loop() {
     if (sensorBlockedStartTime == 0) {
       // Initialize the timer when the sensor is first blocked
       sensorBlockedStartTime = millis();
-    } else if (millis() - sensorBlockedStartTime >= 3000) {
+    } else if (millis() - sensorBlockedStartTime >= 2000) {
       // Toggle the LED strip state after 3 seconds of continuous blocking
       movingRainbowEffect(defaultSpeed, ledStripOn ? 0 : 1);
       sensorBlockedStartTime = 0;  // Reset the timer
@@ -98,7 +97,6 @@ void loop() {
       }
     }
 
-    // Call the movingRainbowEffect function with the received parameters
     movingRainbowEffect(speed, ledStripState);
   }
 }
