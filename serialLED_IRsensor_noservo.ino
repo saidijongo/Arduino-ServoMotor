@@ -100,3 +100,5 @@ void loop() {
     movingRainbowEffect(speed, ledStripState);
   }
 }
+//movingRainbowEffect(150, 1)
+
