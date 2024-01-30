@@ -1,15 +1,15 @@
 #include <FastLED.h>
 
-#define NUM_LEDS_CUBE 47
+#define NUM_LEDS_CUBE 15
 #define IR_PIN 13
-#define LED_PIN_CUBE 45
+#define LED_PIN_CUBE 12
 
 CRGB ledscube[NUM_LEDS_CUBE];
 
 // Global variables
 bool ledStripOn = false;
 unsigned long sensorBlockedStartTime = 0;
-unsigned long defaultSpeed = 150;
+unsigned long defaultSpeed = 130;
 unsigned long lastToggleTime = 0;
 uint8_t startIndex = 0;
 uint8_t hue = 0;
