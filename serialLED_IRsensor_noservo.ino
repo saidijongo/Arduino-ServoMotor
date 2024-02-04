@@ -44,7 +44,7 @@ void movingRainbowEffect(unsigned long speed, int ledStripState) {
       ledStripOn = false;
       FastLED.clear();
       FastLED.show();
-      startIndex = 0;  // Reset the rainbow effect variables
+      startIndex = 0;  // Reset 
       hue = 0;
     }
   }
@@ -99,6 +99,8 @@ void loop() {
     movingRainbowEffect(speed, ledStripState);
   }
 }
-//movingRainbowEffect(150, 1)
+//movingRainbowEffect(150, 1) //serial cmd
+
+
 //https://forum.arduino.cc/t/arduino-code-for-controlling-4wd-motors/462846
 
