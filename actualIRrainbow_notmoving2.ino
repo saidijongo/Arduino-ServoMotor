@@ -1,9 +1,8 @@
-
 #include <FastLED.h>
 
 #define NUM_LEDS_CUBE 32
 #define IR_PIN 13
-#define LED_PIN_CUBE 12
+#define LED_PIN_CUBE 11
 
 CRGB ledscube[NUM_LEDS_CUBE];
 
@@ -11,8 +10,9 @@ bool ledStripOn = false;
 unsigned long sensorBlockedStartTime = 0;
 unsigned long defaultSpeed = 130;
 unsigned long lastToggleTime = 0;
-uint8_t startIndex = 0;
+int8_t startIndex = 0; // Changed to signed type for handling direction
 uint8_t hue = 0;
+bool moveRight = true; // Flag to determine direction of movement
 
 void movingRainbowEffect(unsigned long speed, int ledStripState) {
   if (ledStripState == 1) {
@@ -36,7 +36,19 @@ void movingRainbowEffect(unsigned long speed, int ledStripState) {
 
       FastLED.show();
       lastToggleTime = millis();
-      startIndex++;  // Increment the starting position for the next frame
+
+      // Update the startIndex based on the direction of movement
+      if (moveRight) {
+        startIndex++; // Move right
+        if (startIndex >= NUM_LEDS_CUBE) {
+          startIndex = 0; // Wrap around
+        }
+      } else {
+        startIndex--; // Move left
+        if (startIndex < 0) {
+          startIndex = NUM_LEDS_CUBE - 1; // Wrap around
+        }
+      }
     }
   } else {
     // Turn off the LED strip
