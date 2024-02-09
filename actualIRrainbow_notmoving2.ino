@@ -106,6 +106,8 @@ void loop() {
       }
     }
 
-    movingRainbowEffect(speed, ledStripState);
+    movingRainbowEffect(speed, ledStripState); //
+    //movingRainbowEffect(100, 1); //
+
   }
 }
